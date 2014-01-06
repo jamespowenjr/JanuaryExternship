@@ -1,0 +1,62 @@
+a = LOAD 'nyse_stocks' USING org.apache.hcatalog.pig.HCatLoader();
+
+b = FILTER a by stock_symbol == 'IBM';
+describe b;
+
+c = group b all;
+describe c;
+
+d = FOREACH c GENERATE AVG(b.stock_volume);
+dump d;
+e = FOREACH b GENERATE date, stock_price_close;
+dump e;
+
+STORE e INTO 'out2'; -- This 'file' cannot already exist else an error will be thrown.
+
+
+
+
+
+-- spaces either side of = sign
+-- every group function generates another M/R job and uses up more spin up time.
+
+
+
+
+/* *************  COMMENTARY and helpful examples  *****************
+/*  If your method takes an array of types, Pig will expect to pass it a bag where each tuple has a single field of that type.
+So if, for example, you have a method stdev that took an array of doubles, you could use it like this:
+A = load 'input' as (id: int, dp:double);
+B = group A by id;
+C = foreach B generate group, stdev(A,dp);
+Soo .....
+--f = FOREACH b GENERATE AVG(stock_volume); -- This won't work as aggregate function requires bag 
+--dump f;
+*/
+
+
+/*
+A = LOAD 'student.txt' AS (name:chararray, term:chararray, gpa:float);
+
+DUMP A;
+(John,fl,3.9F)
+(John,wt,3.7F)
+(John,sp,4.0F)
+(John,sm,3.8F)
+(Mary,fl,3.8F)
+(Mary,wt,3.9F)
+(Mary,sp,4.0F)
+(Mary,sm,4.0F)
+
+B = GROUP A BY name;
+
+DUMP B;
+(John,{(John,fl,3.9F),(John,wt,3.7F),(John,sp,4.0F),(John,sm,3.8F)})
+(Mary,{(Mary,fl,3.8F),(Mary,wt,3.9F),(Mary,sp,4.0F),(Mary,sm,4.0F)})
+
+C = FOREACH B GENERATE A.name, AVG(A.gpa);
+
+DUMP C;
+({(John),(John),(John),(John)},3.850000023841858)
+({(Mary),(Mary),(Mary),(Mary)},3.925000011920929)
+*/
