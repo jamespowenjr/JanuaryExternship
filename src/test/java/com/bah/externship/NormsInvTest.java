@@ -1,8 +1,9 @@
 package com.bah.externship;
 
-import junit.framework.Assert;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class NormsInvTest {
 
@@ -13,6 +14,6 @@ public class NormsInvTest {
         NormalDistribution dist = new NormalDistribution();
         double result = dist.inverseCumulativeProbability(probability);
         System.out.println(result);
-        Assert.assertEquals(result, 1.644853627, 0.00000001);
+        assertEquals(result, 1.644853627, 0.00000001);
     }
 }
