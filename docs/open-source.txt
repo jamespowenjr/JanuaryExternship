@@ -1,0 +1,21 @@
+Big Data Projects
+
+Storm
+http://storm-project.net/
+
+Hadoop
+http://hadoop.apache.org/
+
+Lucene/Solr
+http://lucene.apache.org/
+If you want to become a text search wizard, go buy (or check your school's library for a copy of) "Taming Text".
+
+MongoDB
+http://www.mongodb.org/
+
+
+Other open-source projects I mentioned
+
+NodeJS + Mongoose(MongoDB connector for NodeJS)
+http://nodejs.org/
+http://mongoosejs.com/index.html
