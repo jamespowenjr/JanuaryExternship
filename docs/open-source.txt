@@ -1,17 +1,25 @@
 Big Data Projects
 
-Storm
+Storm 
+real-time,streaming processing
 http://storm-project.net/
 
 Hadoop
+You know what Hadoop is by now hopefully
 http://hadoop.apache.org/
 
 Lucene/Solr
+Text indexing, analysis, and search
 http://lucene.apache.org/
 If you want to become a text search wizard, go buy (or check your school's library for a copy of) "Taming Text".
 
 MongoDB
+Lightweight document storage and retrieval
 http://www.mongodb.org/
+
+Mahout
+Scalable machine-learning; cool stuff 
+http://mahout.apache.org/
 
 
 Other open-source projects I mentioned
